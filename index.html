@@ -1,1 +1,1604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
 
+<title>Strong Store | Demonstração Black Tech</title>
+
+<meta name="description" content="Demonstração independente de loja virtual de moda masculina desenvolvida pela Black Tech.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #101010;
+  --dark: #191919;
+  --white: #ffffff;
+  --light: #f5f5f3;
+  --gray: #777;
+  --border: #e5e5e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: var(--black);
+  background: var(--white);
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin: auto;
+}
+
+/* BARRA SUPERIOR */
+
+.topbar {
+  background: var(--black);
+  color: white;
+  text-align: center;
+  padding: 11px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* CABEÇALHO */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
+}
+
+.nav {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-family: Montserrat, sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.logo span {
+  font-weight: 400;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  transition: .2s;
+}
+
+nav a:hover {
+  color: #777;
+}
+
+.cart-button {
+  border: 1px solid var(--black);
+  background: var(--black);
+  color: white;
+  padding: 13px 19px;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.cart-button:hover {
+  background: #333;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.88),
+      rgba(0,0,0,.48),
+      rgba(0,0,0,.12)
+    ),
+    url("https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+
+  color: white;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: Montserrat, sans-serif;
+  font-size: clamp(45px, 7vw, 92px);
+  line-height: 1.04;
+  letter-spacing: -3px;
+  margin: 0 0 25px;
+  font-weight: 900;
+}
+
+.hero p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e2e2e2;
+  max-width: 500px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 30px;
+  background: var(--black);
+  border: 1px solid var(--black);
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #383838;
+  transform: translateY(-2px);
+}
+
+.btn-white {
+  background: white;
+  border-color: white;
+  color: black;
+}
+
+.btn-white:hover {
+  background: #ddd;
+}
+
+/* BENEFÍCIOS */
+
+.benefits {
+  background: var(--light);
+  border-bottom: 1px solid var(--border);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 27px 0;
+}
+
+.benefit {
+  text-align: center;
+}
+
+.benefit strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.benefit span {
+  font-size: 11px;
+  color: var(--gray);
+}
+
+/* SEÇÕES */
+
+section {
+  padding: 90px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title small {
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+.section-title h2 {
+  font-family: Montserrat, sans-serif;
+  font-size: clamp(29px, 4vw, 44px);
+  margin: 15px 0;
+  letter-spacing: -1.5px;
+}
+
+.section-title p {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* FILTROS */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.filter {
+  padding: 12px 17px;
+  background: white;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.filter:hover,
+.filter.active {
+  background: var(--black);
+  color: white;
+  border-color: var(--black);
+}
+
+.search {
+  padding: 13px 17px;
+  border: 1px solid #ddd;
+  width: 250px;
+  max-width: 100%;
+  outline: none;
+}
+
+.search:focus {
+  border-color: black;
+}
+
+/* PRODUTOS */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 20px;
+}
+
+.product {
+  background: white;
+  min-width: 0;
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+  background: #f0f0f0;
+  aspect-ratio: 3 / 4;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s;
+}
+
+.product:hover img {
+  transform: scale(1.06);
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: black;
+  color: white;
+  padding: 8px 11px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.product-info {
+  padding: 18px 0;
+}
+
+.product-category {
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product h3 {
+  font-size: 15px;
+  margin: 9px 0;
+  font-weight: 800;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 900;
+  margin: 12px 0;
+}
+
+.add-button {
+  width: 100%;
+  background: black;
+  color: white;
+  border: 1px solid black;
+  padding: 14px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  transition: .3s;
+}
+
+.add-button:hover {
+  background: #444;
+}
+
+.empty-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray);
+}
+
+/* BANNER */
+
+.banner {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.2)),
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1700&q=85")
+    center/cover;
+}
+
+.banner h2 {
+  font-family: Montserrat, sans-serif;
+  font-size: clamp(36px, 5vw, 65px);
+  max-width: 700px;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.banner p {
+  color: #ddd;
+  line-height: 1.8;
+  max-width: 530px;
+}
+
+/* SOBRE */
+
+.about {
+  background: var(--light);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.about h2 {
+  font-family: Montserrat, sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.15;
+}
+
+.about p {
+  color: #666;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+/* RODAPÉ */
+
+footer {
+  background: #101010;
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+}
+
+footer h3 {
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+}
+
+footer p {
+  color: #aaa;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 45px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+/* CARRINHO */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  z-index: 199;
+  display: none;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: min(440px, 100%);
+  background: white;
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform .3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.close-cart {
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 25px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 15px;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 0;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-item h4 {
+  margin: 0 0 9px;
+  font-size: 13px;
+}
+
+.cart-item p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.quantity button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.remove {
+  border: 0;
+  background: transparent;
+  color: #a22;
+  font-size: 11px;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.cart-footer {
+  border-top: 1px solid var(--border);
+  padding: 25px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.cart-footer .btn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.cart-footer p {
+  font-size: 11px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.order-preview {
+  display: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #f5f5f5;
+  padding: 16px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  font-size: 12px;
+  line-height: 1.8;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* NOTIFICAÇÃO */
+
+.toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 100px);
+  background: black;
+  color: white;
+  padding: 15px 25px;
+  font-size: 12px;
+  font-weight: 800;
+  z-index: 300;
+  opacity: 0;
+  transition: .3s;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 950px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-grid {
+    gap: 30px;
+  }
+}
+
+@media(max-width: 700px) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 18px 0;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 12px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    display: block;
+  }
+
+  .filters {
+    margin-bottom: 20px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .about-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about img {
+    height: 350px;
+  }
+
+  .banner {
+    min-height: 370px;
+  }
+}
+
+@media(max-width: 420px) {
+  .product h3 {
+    font-size: 13px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .add-button {
+    padding: 12px 5px;
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .filter {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  PROJETO DEMONSTRATIVO • BLACK TECH
+</div>
+
+<header>
+  <div class="container nav">
+
+    <a href="#inicio" class="logo">
+      STRONG<span>STORE.</span>
+    </a>
+
+    <nav aria-label="Menu principal">
+      <a href="#inicio">Início</a>
+      <a href="#colecao">Coleção</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <button class="cart-button" id="openCart" type="button">
+      🛒 CARRINHO (<span id="cartCount">0</span>)
+    </button>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+  <div class="container">
+
+    <div class="hero-content">
+
+      <span class="hero-tag">
+        MODA MASCULINA • CONCEITO DIGITAL
+      </span>
+
+      <h1>
+        SEU ESTILO.<br>
+        SUA IDENTIDADE.
+      </h1>
+
+      <p>
+        Uma experiência de moda masculina que combina
+        atitude, elegância e personalidade.
+      </p>
+
+      <a href="#colecao" class="btn btn-white">
+        EXPLORAR COLEÇÃO →
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="benefits">
+  <div class="container benefits-grid">
+
+    <div class="benefit">
+      <strong>✦ ESTILO</strong>
+      <span>Uma apresentação moderna</span>
+    </div>
+
+    <div class="benefit">
+      <strong>✦ PRATICIDADE</strong>
+      <span>Catálogo fácil de explorar</span>
+    </div>
+
+    <div class="benefit">
+      <strong>✦ EXPERIÊNCIA</strong>
+      <span>Uma loja pensada para o digital</span>
+    </div>
+
+  </div>
+</div>
+
+<section id="colecao">
+  <div class="container">
+
+    <div class="section-title">
+      <small>THE COLLECTION</small>
+      <h2>EXPLORE A COLEÇÃO</h2>
+      <p>
+        Produtos e valores ilustrativos para demonstrar
+        o funcionamento de uma loja virtual.
+      </p>
+    </div>
+
+    <div class="toolbar">
+
+      <div class="filters">
+        <button class="filter active" data-category="todos">
+          Todos
+        </button>
+
+        <button class="filter" data-category="camisetas">
+          Camisetas
+        </button>
+
+        <button class="filter" data-category="calcas">
+          Calças
+        </button>
+
+        <button class="filter" data-category="jaquetas">
+          Jaquetas
+        </button>
+
+        <button class="filter" data-category="acessorios">
+          Acessórios
+        </button>
+      </div>
+
+      <input
+        type="search"
+        id="search"
+        class="search"
+        placeholder="Pesquisar produtos..."
+        aria-label="Pesquisar produtos"
+      >
+
+    </div>
+
+    <div class="products" id="products"></div>
+
+  </div>
+</section>
+
+<section class="banner">
+  <div class="container">
+
+    <h2>
+      O ESTILO NÃO É APENAS O QUE VOCÊ VESTE.
+    </h2>
+
+    <p>
+      É a maneira como você se apresenta ao mundo.
+      Uma proposta de experiência de compra moderna e sofisticada.
+    </p>
+
+    <a href="#colecao" class="btn btn-white">
+      VER PRODUTOS
+    </a>
+
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="container about-grid">
+
+    <img
+      src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=900&q=85"
+      alt="Moda masculina — imagem ilustrativa"
+      loading="lazy"
+    >
+
+    <div>
+      <h2>
+        UMA NOVA EXPERIÊNCIA DE MODA.
+      </h2>
+
+      <p>
+        Este projeto demonstra como uma loja de roupas
+        pode apresentar seu catálogo, organizar produtos
+        e oferecer uma experiência de compra intuitiva.
+      </p>
+
+      <p>
+        Em uma versão oficial, os produtos, fotografias,
+        preços e informações seriam substituídos pelos
+        dados fornecidos e autorizados pelo estabelecimento.
+      </p>
+
+      <a href="#colecao" class="btn">
+        CONHECER COLEÇÃO
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer id="contato">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>STRONG STORE.</h3>
+
+        <p>
+          Projeto conceitual independente desenvolvido
+          pela Black Tech.
+        </p>
+
+        <p>
+          Esta página não é a loja virtual oficial
+          da Strong Store e não representa parceria
+          ou autorização comercial do estabelecimento.
+        </p>
+      </div>
+
+      <div>
+        <h3>INFORMAÇÕES</h3>
+
+        <p>Catálogo demonstrativo</p>
+        <p>Produtos ilustrativos</p>
+        <p>Preços fictícios</p>
+        <p>Sem pagamentos ou pedidos reais</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © 2026 Black Tech — Demonstração independente.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- FUNDO DO CARRINHO -->
+
+<div class="overlay" id="overlay"></div>
+
+<!-- CARRINHO -->
+
+<aside
+  class="cart"
+  id="cart"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Carrinho de compras"
+  aria-hidden="true"
+>
+
+  <div class="cart-header">
+    <h2>MEU CARRINHO 🛒</h2>
+
+    <button
+      class="close-cart"
+      id="closeCart"
+      type="button"
+      aria-label="Fechar carrinho"
+    >
+      ×
+    </button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-footer">
+
+    <div class="total">
+      <span>TOTAL</span>
+      <span id="cartTotal">R$ 0,00</span>
+    </div>
+
+    <button class="btn" id="checkout" type="button">
+      GERAR RESUMO DO PEDIDO
+    </button>
+
+    <button
+      class="btn"
+      id="clearCart"
+      type="button"
+      style="background:white;color:black;width:100%;"
+    >
+      LIMPAR CARRINHO
+    </button>
+
+    <p>
+      Demonstração: nenhum pedido será enviado.
+      Não há pagamentos nesta página.
+    </p>
+
+    <div
+      class="order-preview"
+      id="orderPreview"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+  </div>
+
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+
+/* ===================================
+   PRODUTOS ILUSTRATIVOS
+=================================== */
+
+const products = [
+  {
+    id: 1,
+    name: "Camiseta Essential Black",
+    category: "camisetas",
+    price: 79.90,
+    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 2,
+    name: "Camiseta Urban White",
+    category: "camisetas",
+    price: 89.90,
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 3,
+    name: "Camiseta Classic",
+    category: "camisetas",
+    price: 69.90,
+    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 4,
+    name: "Camiseta Premium",
+    category: "camisetas",
+    price: 99.90,
+    image: "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 5,
+    name: "Calça Denim",
+    category: "calcas",
+    price: 159.90,
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 6,
+    name: "Calça Jeans Classic",
+    category: "calcas",
+    price: 179.90,
+    image: "https://images.unsplash.com/photo-1511196044526-5cb3bcb7071b?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 7,
+    name: "Calça Urban",
+    category: "calcas",
+    price: 189.90,
+    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 8,
+    name: "Jaqueta Street",
+    category: "jaquetas",
+    price: 249.90,
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 9,
+    name: "Jaqueta Premium",
+    category: "jaquetas",
+    price: 299.90,
+    image: "https://images.unsplash.com/photo-1544923246-77307dd654cb?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 10,
+    name: "Jaqueta Casual",
+    category: "jaquetas",
+    price: 229.90,
+    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 11,
+    name: "Boné Urban",
+    category: "acessorios",
+    price: 59.90,
+    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=650&q=85"
+  },
+  {
+    id: 12,
+    name: "Óculos Classic",
+    category: "acessorios",
+    price: 89.90,
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=650&q=85"
+  }
+];
+
+/* ===================================
+   ELEMENTOS
+=================================== */
+
+const productsContainer = document.getElementById("products");
+const searchInput = document.getElementById("search");
+
+const cartElement = document.getElementById("cart");
+const overlay = document.getElementById("overlay");
+const cartItems = document.getElementById("cartItems");
+
+const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
+
+const orderPreview = document.getElementById("orderPreview");
+const toastElement = document.getElementById("toast");
+
+let selectedCategory = "todos";
+let cart = {};
+
+const storageKey = "blacktech-strong-store-demo-cart";
+
+/* ===================================
+   UTILIDADES
+=================================== */
+
+function money(value) {
+  return value.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+}
+
+function saveCart() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(cart));
+  } catch (error) {
+    console.warn("Não foi possível salvar o carrinho.");
+  }
+}
+
+function loadCart() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey));
+
+    if (!saved || typeof saved !== "object" || Array.isArray(saved)) {
+      return {};
+    }
+
+    const clean = {};
+
+    for (const product of products) {
+      const quantity = saved[product.id];
+
+      if (
+        Number.isInteger(quantity) &&
+        quantity > 0 &&
+        quantity <= 99
+      ) {
+        clean[product.id] = quantity;
+      }
+    }
+
+    return clean;
+  } catch {
+    return {};
+  }
+}
+
+cart = loadCart();
+
+let toastTimeout;
+
+function showToast(message) {
+  toastElement.textContent = message;
+  toastElement.classList.add("show");
+
+  clearTimeout(toastTimeout);
+
+  toastTimeout = setTimeout(() => {
+    toastElement.classList.remove("show");
+  }, 2500);
+}
+
+/* ===================================
+   CATÁLOGO
+=================================== */
+
+function renderProducts() {
+  const search = searchInput.value
+    .toLowerCase()
+    .trim();
+
+  const filtered = products.filter(product => {
+    const categoryMatches =
+      selectedCategory === "todos" ||
+      product.category === selectedCategory;
+
+    const searchMatches =
+      product.name.toLowerCase().includes(search);
+
+    return categoryMatches && searchMatches;
+  });
+
+  productsContainer.innerHTML = "";
+
+  if (filtered.length === 0) {
+    productsContainer.innerHTML = `
+      <div class="empty-results">
+        Nenhum produto encontrado.
+      </div>
+    `;
+    return;
+  }
+
+  filtered.forEach(product => {
+    const card = document.createElement("article");
+
+    card.className = "product";
+
+    card.innerHTML = `
+      <div class="product-image">
+        <img
+          src="${product.image}"
+          alt="${product.name} — imagem ilustrativa"
+          loading="lazy"
+        >
+        <span class="badge">DEMO</span>
+      </div>
+
+      <div class="product-info">
+        <span class="product-category">
+          ${product.category}
+        </span>
+
+        <h3>${product.name}</h3>
+
+        <div class="price">
+          ${money(product.price)}
+        </div>
+
+        <button
+          class="add-button"
+          type="button"
+          data-add="${product.id}"
+        >
+          + ADICIONAR AO CARRINHO
+        </button>
+      </div>
+    `;
+
+    productsContainer.appendChild(card);
+  });
+}
+
+/* ===================================
+   FILTROS
+=================================== */
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedCategory = button.dataset.category;
+
+    document.querySelectorAll(".filter").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    renderProducts();
+  });
+});
+
+searchInput.addEventListener("input", renderProducts);
+
+/* ===================================
+   CARRINHO
+=================================== */
+
+function addToCart(id) {
+  const product = products.find(item => item.id === id);
+
+  if (!product) return;
+
+  const currentQuantity = cart[id] || 0;
+
+  if (currentQuantity >= 99) {
+    showToast("Limite de 99 unidades por produto.");
+    return;
+  }
+
+  cart[id] = currentQuantity + 1;
+
+  saveCart();
+  renderCart();
+
+  showToast("Produto adicionado ao carrinho!");
+}
+
+function removeFromCart(id) {
+  delete cart[id];
+
+  saveCart();
+  renderCart();
+}
+
+function changeQuantity(id, amount) {
+  if (!cart[id]) return;
+
+  const newQuantity = cart[id] + amount;
+
+  if (newQuantity <= 0) {
+    removeFromCart(id);
+    return;
+  }
+
+  if (newQuantity > 99) {
+    showToast("Limite de 99 unidades por produto.");
+    return;
+  }
+
+  cart[id] = newQuantity;
+
+  saveCart();
+  renderCart();
+}
+
+function getCartProducts() {
+  return products.filter(product => cart[product.id] > 0);
+}
+
+function renderCart() {
+  const selected = getCartProducts();
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  let count = 0;
+
+  selected.forEach(product => {
+    const quantity = cart[product.id];
+
+    total += product.price * quantity;
+    count += quantity;
+
+    const item = document.createElement("div");
+
+    item.className = "cart-item";
+
+    item.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+
+      <div>
+        <h4>${product.name}</h4>
+
+        <p>${money(product.price)}</p>
+
+        <div class="quantity">
+          <button
+            type="button"
+            data-minus="${product.id}"
+            aria-label="Diminuir quantidade de ${product.name}"
+          >−</button>
+
+          <span>${quantity}</span>
+
+          <button
+            type="button"
+            data-plus="${product.id}"
+            aria-label="Aumentar quantidade de ${product.name}"
+          >+</button>
+        </div>
+
+        <button
+          class="remove"
+          type="button"
+          data-remove="${product.id}"
+        >
+          Remover
+        </button>
+      </div>
+    `;
+
+    cartItems.appendChild(item);
+  });
+
+  if (selected.length === 0) {
+    cartItems.innerHTML = `
+      <p style="text-align:center;color:#777;padding:40px 0;">
+        Seu carrinho está vazio.
+      </p>
+    `;
+  }
+
+  cartCount.textContent = count;
+  cartTotal.textContent = money(total);
+
+  orderPreview.style.display = "none";
+  orderPreview.textContent = "";
+}
+
+/* ===================================
+   EVENTOS DOS PRODUTOS
+=================================== */
+
+productsContainer.addEventListener("click", event => {
+  const button = event.target.closest("[data-add]");
+
+  if (!button) return;
+
+  addToCart(Number(button.dataset.add));
+});
+
+cartItems.addEventListener("click", event => {
+  const minus = event.target.closest("[data-minus]");
+  const plus = event.target.closest("[data-plus]");
+  const remove = event.target.closest("[data-remove]");
+
+  if (minus) {
+    changeQuantity(Number(minus.dataset.minus), -1);
+  }
+
+  if (plus) {
+    changeQuantity(Number(plus.dataset.plus), 1);
+  }
+
+  if (remove) {
+    removeFromCart(Number(remove.dataset.remove));
+  }
+});
+
+/* ===================================
+   ABRIR E FECHAR CARRINHO
+=================================== */
+
+const openCartButton = document.getElementById("openCart");
+const closeCartButton = document.getElementById("closeCart");
+
+function openCart() {
+  cartElement.classList.add("open");
+  overlay.classList.add("show");
+  document.body.classList.add("no-scroll");
+
+  cartElement.setAttribute("aria-hidden", "false");
+
+  closeCartButton.focus();
+}
+
+function closeCart() {
+  cartElement.classList.remove("open");
+  overlay.classList.remove("show");
+  document.body.classList.remove("no-scroll");
+
+  cartElement.setAttribute("aria-hidden", "true");
+
+  openCartButton.focus();
+}
+
+openCartButton.addEventListener("click", openCart);
+closeCartButton.addEventListener("click", closeCart);
+overlay.addEventListener("click", closeCart);
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && cartElement.classList.contains("open")) {
+    closeCart();
+  }
+});
+
+/* ===================================
+   LIMPAR CARRINHO
+=================================== */
+
+document.getElementById("clearCart").addEventListener("click", () => {
+  cart = {};
+
+  saveCart();
+  renderCart();
+
+  showToast("Carrinho esvaziado!");
+});
+
+/* ===================================
+   RESUMO DO PEDIDO
+=================================== */
+
+document.getElementById("checkout").addEventListener("click", () => {
+  const selected = getCartProducts();
+
+  if (selected.length === 0) {
+    showToast("Adicione produtos ao carrinho.");
+    return;
+  }
+
+  let total = 0;
+
+  const lines = selected.map(product => {
+    const quantity = cart[product.id];
+    const subtotal = product.price * quantity;
+
+    total += subtotal;
+
+    return `${quantity}x ${product.name} — ${money(subtotal)}`;
+  });
+
+  const message = [
+    "🛍️ STRONG STORE — PEDIDO DEMONSTRATIVO",
+    "",
+    ...lines,
+    "",
+    `TOTAL: ${money(total)}`,
+    "",
+    "Projeto conceitual da Black Tech.",
+    "Este pedido não foi enviado a nenhuma loja."
+  ].join("\n");
+
+  orderPreview.textContent = message;
+  orderPreview.style.display = "block";
+
+  orderPreview.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+
+  showToast("Resumo demonstrativo gerado!");
+});
+
+/* ===================================
+   INICIALIZAÇÃO
+=================================== */
+
+renderProducts();
+renderCart();
+
+</script>
+
+</body>
+</html>
